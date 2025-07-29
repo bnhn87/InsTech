@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import { supabase } from '../lib/supabaseClient';
 import { saveOffline, loadOffline } from '../lib/offline';
 import { syncOfflinePins } from '../lib/sync';
-import { saveOffline, loadOffline } from '../lib/offline';
+
 
 interface Pin {
   x: number;
