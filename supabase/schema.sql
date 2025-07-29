@@ -478,14 +478,14 @@ create policy "projects read" on public.projects
 
 create policy "projects insert" on public.projects
     for insert with check (
-        auth.exists (
+        exists (
             select 1 from public.users u where u.id = auth.uid() and u.role = 'admin'
         )
     );
 
 create policy "projects update" on public.projects
     for update using (
-        auth.exists (
+        exists (
             select 1 from public.users u where u.id = auth.uid() and u.role = 'admin'
         )
     );
@@ -502,14 +502,14 @@ create policy "project_members read" on public.project_members
 
 create policy "project_members insert" on public.project_members
     for insert with check (
-        auth.exists (
+        exists (
             select 1 from public.users u where u.id = auth.uid() and u.role = 'admin'
         )
     );
 
 create policy "project_members delete" on public.project_members
     for delete using (
-        auth.exists (
+        exists (
             select 1 from public.users u where u.id = auth.uid() and u.role = 'admin'
         )
     );
