@@ -1,0 +1,15 @@
+{
+  "login": "Login",
+  "register": "Register",
+  "email": "Email",
+  "password": "Password",
+  "projectTitle": "Project Title",
+  "projectReference": "Project Reference",
+  "startDate": "Start Date",
+  "startTime": "Start Time",
+  "createProject": "Create Project",
+  "startJob": "Start Job",
+  "floorPlan": "Floor Plan",
+  "addPin": "Add Pin",
+  "save": "Save"
+}

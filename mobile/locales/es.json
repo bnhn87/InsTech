@@ -1,0 +1,15 @@
+{
+  "login": "Iniciar sesión",
+  "register": "Registrarse",
+  "email": "Correo electrónico",
+  "password": "Contraseña",
+  "projectTitle": "Título del proyecto",
+  "projectReference": "Referencia del proyecto",
+  "startDate": "Fecha de inicio",
+  "startTime": "Hora de inicio",
+  "createProject": "Crear proyecto",
+  "startJob": "Iniciar trabajo",
+  "floorPlan": "Plano de planta",
+  "addPin": "Agregar marcador",
+  "save": "Guardar"
+}

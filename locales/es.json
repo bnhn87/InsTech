@@ -1,0 +1,37 @@
+{
+  "login": "Iniciar sesión",
+  "register": "Registrarse",
+  "email": "Correo electrónico",
+  "password": "Contraseña",
+  "projectTitle": "Título del proyecto",
+  "projectReference": "Referencia del proyecto",
+  "startDate": "Fecha de inicio",
+  "startTime": "Hora de inicio",
+  "duration": "Duración",
+  "labourRequired": "Mano de obra requerida",
+  "upliftViaStairs": "Subir por las escaleras?",
+  "equipmentNeeded": "Equipamiento necesario",
+  "siteAddress": "Dirección del sitio",
+  "loadingBayDetails": "Detalles del muelle de carga",
+  "liftDetails": "Detalles del ascensor",
+  "projectManagerName": "Nombre del jefe de proyecto",
+  "projectManagerPhone": "Teléfono del jefe de proyecto",
+  "siteManagerName": "Nombre del jefe de obra",
+  "siteManagerPhone": "Teléfono del jefe de obra",
+  "clientContactName": "Nombre del cliente",
+  "clientContactPhone": "Teléfono del cliente",
+  "createProject": "Crear proyecto",
+  "startJob": "Iniciar trabajo",
+  "floorPlan": "Plano de planta",
+  "addPin": "Agregar marcador",
+  "save": "Guardar"
+  ,
+  "forms": "Formularios",
+  "noForms": "No hay formularios disponibles",
+  "submit": "Enviar",
+  "cancel": "Cancelar"
+  ,
+  "settings": "Configuración"
+  ,
+  "select": "Seleccionar"
+}

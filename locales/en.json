@@ -1,0 +1,37 @@
+{
+  "login": "Login",
+  "register": "Register",
+  "email": "Email",
+  "password": "Password",
+  "projectTitle": "Project Title",
+  "projectReference": "Project Reference",
+  "startDate": "Start Date",
+  "startTime": "Start Time",
+  "duration": "Duration",
+  "labourRequired": "Labour Required",
+  "upliftViaStairs": "Uplift via stairs?",
+  "equipmentNeeded": "Equipment Needed",
+  "siteAddress": "Site Address",
+  "loadingBayDetails": "Loading Bay Details",
+  "liftDetails": "Lift Details",
+  "projectManagerName": "Project Manager Name",
+  "projectManagerPhone": "Project Manager Phone",
+  "siteManagerName": "Site Manager Name",
+  "siteManagerPhone": "Site Manager Phone",
+  "clientContactName": "Client Contact Name",
+  "clientContactPhone": "Client Contact Phone",
+  "createProject": "Create Project",
+  "startJob": "Start Job",
+  "floorPlan": "Floor Plan",
+  "addPin": "Add Pin",
+  "save": "Save"
+  ,
+  "forms": "Forms",
+  "noForms": "No forms available",
+  "submit": "Submit",
+  "cancel": "Cancel"
+  ,
+  "settings": "Settings"
+  ,
+  "select": "Select"
+}
