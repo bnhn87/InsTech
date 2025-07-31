@@ -24,15 +24,15 @@ from __future__ import annotations
 import re
 import sys
 import json
-from typing import List, Dict
+from typing import List, Dict, Any
 
 import pdfplumber
 
 
-def parse_pdf(path: str) -> Dict[str, any]:
+def parse_pdf(path: str) -> Dict[str, Any]:
     reference = None
     site_address = None
-    products: List[Dict[str, any]] = []
+    products: List[Dict[str, Any]] = []
     try:
         with pdfplumber.open(path) as pdf:
             full_text = "\n".join(page.extract_text() or "" for page in pdf.pages)
