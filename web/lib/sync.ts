@@ -1,4 +1,4 @@
-import { loadOffline, removeOffline } from './offline';
+import { loadOffline, removeOffline, saveOffline } from './offline';
 import { supabase } from './supabaseClient';
 
 // Sync offline pins saved under the key 'offline_pins'.
@@ -7,19 +7,31 @@ export async function syncOfflinePins() {
   if (typeof navigator !== 'undefined' && !navigator.onLine) return;
   const entries = loadOffline<any[]>('offline_pins') || [];
   if (!entries.length) return;
+  
+  const successfulEntries: any[] = [];
+  
   for (const entry of entries) {
     try {
       const { pinRows } = entry;
       if (pinRows && pinRows.length > 0) {
         const { error } = await supabase.from('pins').insert(pinRows);
         if (!error) {
-          // remove entry if successful
-          // continue
+          successfulEntries.push(entry);
         }
       }
-    } catch {}
+    } catch (error) {
+      console.error('Failed to sync pin entry:', error);
+    }
   }
-  removeOffline('offline_pins');
+  
+  if (successfulEntries.length > 0) {
+    const remainingEntries = entries.filter(entry => !successfulEntries.includes(entry));
+    if (remainingEntries.length > 0) {
+      saveOffline('offline_pins', remainingEntries);
+    } else {
+      removeOffline('offline_pins');
+    }
+  }
 }
 
 // Sync offline form responses saved under 'offline_forms'
@@ -27,13 +39,26 @@ export async function syncOfflineForms() {
   if (typeof navigator !== 'undefined' && !navigator.onLine) return;
   const entries = loadOffline<any[]>('offline_forms') || [];
   if (!entries.length) return;
+  
+  const successfulEntries: any[] = [];
+  
   for (const resp of entries) {
     try {
       const { error } = await supabase.from('form_responses').insert(resp);
       if (!error) {
-        // success
+        successfulEntries.push(resp);
       }
-    } catch {}
+    } catch (error) {
+      console.error('Failed to sync form response:', error);
+    }
   }
-  removeOffline('offline_forms');
+  
+  if (successfulEntries.length > 0) {
+    const remainingEntries = entries.filter(entry => !successfulEntries.includes(entry));
+    if (remainingEntries.length > 0) {
+      saveOffline('offline_forms', remainingEntries);
+    } else {
+      removeOffline('offline_forms');
+    }
+  }
 }
