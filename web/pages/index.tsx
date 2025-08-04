@@ -18,8 +18,17 @@ export default function Home() {
     setError(null);
     try {
       if (registerMode) {
-        const { error: signUpError } = await supabase.auth.signUp({ email, password });
+        const { error: signUpError, data } = await supabase.auth.signUp({ email, password });
         if (signUpError) throw signUpError;
+        const userId = data.user?.id;
+        if (!userId) throw new Error('No user created');
+        
+        const { error: insertError } = await supabase.from('users').insert({
+          id: userId,
+          role: 'admin',
+        });
+        if (insertError) throw insertError;
+        
         alert('Registration successful, check your email for confirmation');
         setRegisterMode(false);
       } else {
