@@ -170,48 +170,25 @@ create policy "projects insert" on public.projects
 
 create policy "projects update" on public.projects
     for update using (
-        exists (
-            select 1 from public.project_members pm
-            where pm.project_id = projects.id 
-              and pm.user_id = auth.uid() 
-              and pm.role = 'admin'
-        )
+        created_by = auth.uid()
     );
 
 create policy "project_members read" on public.project_members
     for select using (
-        user_id = auth.uid() or (
-            exists (
-                select 1 from public.project_members pm
-                where pm.project_id = project_members.project_id 
-                  and pm.user_id = auth.uid() 
-                  and pm.role = 'admin'
-            )
-        )
+        user_id = auth.uid()
     );
 
 create policy "project_members insert" on public.project_members
     for insert with check (
-        (user_id = auth.uid() and role = 'admin' and exists (
+        user_id = auth.uid() and role = 'admin' and exists (
             select 1 from public.projects p 
             where p.id = project_id and p.created_by = auth.uid()
-        )) OR
-        (exists (
-            select 1 from public.project_members pm
-            where pm.project_id = project_members.project_id 
-              and pm.user_id = auth.uid() 
-              and pm.role = 'admin'
-        ))
+        )
     );
 
 create policy "project_members delete" on public.project_members
     for delete using (
-        exists (
-            select 1 from public.project_members pm
-            where pm.project_id = project_members.project_id 
-              and pm.user_id = auth.uid() 
-              and pm.role = 'admin'
-        )
+        user_id = auth.uid()
     );
 
 -- Floor plans: any project member can read/write
